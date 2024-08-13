@@ -13,4 +13,16 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Carter" Version="8.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Products\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\..\BuildingBlocks\BuildingBlocks.csproj" />
+    </ItemGroup>
+
 </Project>
