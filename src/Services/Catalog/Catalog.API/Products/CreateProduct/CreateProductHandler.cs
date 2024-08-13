@@ -31,7 +31,7 @@ internal class CreateProductCommandHandler()
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
         //create Product entity from command object
-        //save to database
+        //save to a database
         //return CreateProductResult result               
 
         var product = new Product
