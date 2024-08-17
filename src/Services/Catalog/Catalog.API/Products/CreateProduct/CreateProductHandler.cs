@@ -14,14 +14,12 @@ public record CreateProductCommand(
 
 public record CreateProductResult(Guid Id);
 
-internal class CreateProductCommandHandler(IDocumentSession session)
+internal class CreateProductCommandHandler(IDocumentSession session, ILogger<CreateProductCommandHandler> logger)
     : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        // var validationResult = await validator.ValidateAsync(command, cancellationToken);
-        //
-        // if (!validationResult.IsValid) throw new ValidationException(validationResult.Errors);
+        logger.LogInformation("Creating product with name {Name}", command.Name);
 
         var product = new Product
         {
