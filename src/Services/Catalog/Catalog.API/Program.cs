@@ -1,11 +1,15 @@
 using Carter;
+using FluentValidation;
 using Marten;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCarter();
 
-builder.Services.AddMediatR(configuration => { configuration.RegisterServicesFromAssembly(typeof(Program).Assembly); });
+builder.Services.AddMediatR(config => { config.RegisterServicesFromAssembly(typeof(Program).Assembly); });
+
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+
 builder.Services.AddMarten(option =>
 {
     option.Connection(builder.Configuration.GetConnectionString("Database") ?? string.Empty);

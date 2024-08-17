@@ -19,9 +19,9 @@ internal class CreateProductCommandHandler(IDocumentSession session)
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        //create Product entity from command object
-        //save to database
-        //return CreateProductResult result               
+        // var validationResult = await validator.ValidateAsync(command, cancellationToken);
+        //
+        // if (!validationResult.IsValid) throw new ValidationException(validationResult.Errors);
 
         var product = new Product
         {
