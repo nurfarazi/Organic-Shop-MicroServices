@@ -1,5 +1,6 @@
 using BuildingBlocks.Behaviors;
 using Carter;
+using Catalog.API.Data;
 using FluentValidation;
 using Marten;
 
@@ -21,7 +22,10 @@ builder.Services.AddMarten(option =>
     option.Connection(builder.Configuration.GetConnectionString("Database") ?? string.Empty);
 }).UseLightweightSessions();
 
-// builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.InitializeMartenWith<CatalogInitialData>();
+}
 
 var app = builder.Build();
 
