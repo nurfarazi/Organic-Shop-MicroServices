@@ -2,7 +2,9 @@ using BuildingBlocks.Behaviors;
 using Carter;
 using Catalog.API.Data;
 using FluentValidation;
+using HealthChecks.UI.Client;
 using Marten;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,7 +36,10 @@ var app = builder.Build();
 
 app.UseExceptionHandler(options => { });
 
-app.UseHealthChecks("/health");
+app.UseHealthChecks("/health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
 
 app.MapCarter();
 
