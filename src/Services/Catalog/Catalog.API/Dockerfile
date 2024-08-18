@@ -7,6 +7,8 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+# Copy the project file and restore the dependencies
+COPY ["Services/BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj", "Services/BuildingBlocks/BuildingBlocks/"]
 COPY ["src/Services/Catalog/Catalog.API/Catalog.API.csproj", "src/Services/Catalog/Catalog.API/"]
 RUN dotnet restore "src/Services/Catalog/Catalog.API/Catalog.API.csproj"
 COPY . .
