@@ -27,9 +27,13 @@ if (builder.Environment.IsDevelopment())
     builder.Services.InitializeMartenWith<CatalogInitialData>();
 }
 
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
 
 app.UseExceptionHandler(options => { });
+
+app.UseHealthChecks("/health");
 
 app.MapCarter();
 
