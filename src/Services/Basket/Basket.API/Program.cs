@@ -23,10 +23,11 @@ builder.Services.AddCarter();
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 
 builder.Services.AddMarten(opts =>
-{
-    opts.Connection(builder.Configuration.GetConnectionString("Database")!);
-    opts.Schema.For<ShoppingCart>().Identity(x => x.UserName);
-}).UseLightweightSessions();
+    {
+        opts.Connection(builder.Configuration.GetConnectionString("Database")!);
+        opts.Schema.For<ShoppingCart>().Identity(x => x.UserName);
+    })
+    .UseLightweightSessions();
 
 //Cross-Cutting Services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
