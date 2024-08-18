@@ -8,20 +8,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\..\..\..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\..\..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.1"/>
         <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1"/>
-      <PackageReference Include="Carter" Version="8.2.1" />
+        <PackageReference Include="Carter" Version="8.2.1"/>
         <PackageReference Include="Marten" Version="7.26.1"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\..\BuildingBlocks\BuildingBlocks.csproj" />
+        <ProjectReference Include="..\..\..\..\BuildingBlocks\BuildingBlocks.csproj"/>
     </ItemGroup>
 
 </Project>
