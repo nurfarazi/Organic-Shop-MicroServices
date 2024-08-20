@@ -32,8 +32,17 @@
       - "5431:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  
+  distributedcache:
+    image: redis
+    restart: always
+    container_name: redis
+    ports:
+      - "6379:6379"
 
 volumes:
-  postgres_data:
+  postgres_catalog:
+  postgres_basket:
+  
   
   
