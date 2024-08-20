@@ -33,7 +33,8 @@ builder.Services.AddMarten(opts =>
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 builder.Services.AddHealthChecks()
-    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!);
+    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
+    .AddRedis(builder.Configuration.GetConnectionString("Redis")!);
 
 builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
 
