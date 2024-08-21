@@ -8,10 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Protobuf Include="Protos\greet.proto" GrpcServices="Server"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Grpc.AspNetCore" Version="2.60.0" />
         <PackageReference Include="Mapster" Version="7.4.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
@@ -27,5 +23,7 @@
         <Link>.dockerignore</Link>
       </Content>
     </ItemGroup>
-
+    <ItemGroup>
+        <Protobuf Include="Protos\discount.proto" GrpcServices="Server"/>
+    </ItemGroup>
 </Project>
