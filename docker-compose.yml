@@ -1,4 +1,6 @@
-﻿services:
+﻿version: '3.8'
+
+services:
   catalog.api:
     image: catalog.api
     container_name: catalog.api
@@ -6,40 +8,62 @@
       context: .
       dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
     depends_on:
-      - postgres
+      - catalogDb
     ports:
       - "6000:8080"
       - "6060:8081"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__Database=Host=postgres;Database=CatalogDb;Username=postgres;Password=postgres
-  
+
   basket.api:
     image: basket.api
+    container_name: basket.api
+    depends_on:
+      - basketDB
+    ports:
+      - "6001:8080"
+      - "6061:8081"
     build:
       context: .
       dockerfile: src/Services/Basket/Basket.API/Dockerfile
 
-  postgres:
+  catalogDb:
     image: postgres
-    container_name: postgres
+    container_name: catalogDb
     environment:
       POSTGRES_DB: CatalogDb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     restart: always
     ports:
-      - "5431:5432"
+      - "5430:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_catalog:/var/lib/postgresql/data
 
-volumes:
-  postgres_data:
-  
-  
-
-  discount.grpc:
-    image: discount.grpc
+  basketDB:
+    image: postgres
+    container_name: basketdb
     build:
       context: .
-      dockerfile: src/Services/Discount/Discount.Grpc/Dockerfile
+      dockerfile: src/Services/Basket/Basket.API/Dockerfile
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=BasketDb
+    restart: always
+    ports:
+      - "5429:5432"
+    volumes:
+      - postgres_basket:/var/lib/postgresql/data/
+
+  distributedcache:
+    image: redis
+    restart: always
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_catalog:
+  postgres_basket:
