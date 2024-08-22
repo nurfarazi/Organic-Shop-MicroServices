@@ -4,3 +4,10 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 .idea
+.suo
+.vs/
+*.sln.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates

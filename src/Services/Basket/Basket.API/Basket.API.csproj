@@ -5,6 +5,9 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>550ef450-3699-4f8f-90c2-519275fb4188</UserSecretsId>
+        <DockerfileContext>..\..\..\..</DockerfileContext>
+        <DockerComposeProjectPath>..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,17 +17,18 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\BuildingBlocks\BuildingBlocks.csproj"/>
+        <ProjectReference Include="..\..\..\..\BuildingBlocks\BuildingBlocks.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.1"/>
-        <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="8.0.1"/>
-        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1"/>
-        <PackageReference Include="Carter" Version="8.2.1"/>
-        <PackageReference Include="Marten" Version="7.26.1"/>
-        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.8"/>
-        <PackageReference Include="Scrutor" Version="4.2.2"/>
+        <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="8.0.1" />
+        <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="8.0.1" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
+        <PackageReference Include="Carter" Version="8.2.1" />
+        <PackageReference Include="Marten" Version="7.26.1" />
+        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.8" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
+        <PackageReference Include="Scrutor" Version="4.2.2" />
     </ItemGroup>
 
 </Project>

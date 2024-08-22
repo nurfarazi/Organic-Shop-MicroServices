@@ -5,6 +5,9 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>24a3ede1-c7c7-40d9-bd6b-cede957d3ddb</UserSecretsId>
+        <DockerfileContext>..\..\..\..</DockerfileContext>
+        <DockerComposeProjectPath>..\..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,6 +27,6 @@
       </Content>
     </ItemGroup>
     <ItemGroup>
-        <Protobuf Include="Protos\discount.proto" GrpcServices="Server"/>
+        <Protobuf Include="Protos\discount.proto" GrpcServices="Server" />
     </ItemGroup>
 </Project>
