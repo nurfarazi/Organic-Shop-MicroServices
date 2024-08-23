@@ -7,11 +7,12 @@ public class Coupon
     public Coupon()
     {
         ProductName = "No Discount";
-        Amount = 0;
         Description = "No Discount Desc";
+        Amount = 0;
     }
 
-    public int Id { get; set; }
+    [Key] public int Id { get; set; }
+
     [MaxLength(40)] public string ProductName { get; set; } = default!;
     [MaxLength(40)] public string Description { get; set; } = default!;
     [Range(0, 10000)] public int Amount { get; set; }
