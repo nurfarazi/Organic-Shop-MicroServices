@@ -1,9 +1,18 @@
-﻿namespace Discount.Grpc.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Discount.Grpc.Models;
 
 public class Coupon
 {
+    public Coupon()
+    {
+        ProductName = "No Discount";
+        Amount = 0;
+        Description = "No Discount Desc";
+    }
+
     public int Id { get; set; }
-    public string ProductName { get; set; } = default!;
-    public string Description { get; set; } = default!;
-    public int Amount { get; set; }
+    [MaxLength(40)] public string ProductName { get; set; } = default!;
+    [MaxLength(40)] public string Description { get; set; } = default!;
+    [Range(0, 10000)] public int Amount { get; set; }
 }
